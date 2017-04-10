@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[OpenandPendingPOReport] (
+    [Purchase Order]  NVARCHAR (255) NULL,
+    [Vendor]          NVARCHAR (255) NULL,
+    [Location]        NVARCHAR (255) NULL,
+    [From Date]       DATETIME       NULL,
+    [To Date]         DATETIME       NULL,
+    [Deal Vol]        FLOAT (53)     NULL,
+    [Actual Shipped]  FLOAT (53)     NULL,
+    [Actual Received] FLOAT (53)     NULL,
+    [Trans Method]    NVARCHAR (255) NULL,
+    [Deal Qty]        FLOAT (53)     NULL,
+    [Shipped Qty]     FLOAT (53)     NULL,
+    [Received Qty]    FLOAT (53)     NULL,
+    [Balance on Deal] FLOAT (53)     NULL,
+    [Deal Complete]   NVARCHAR (255) NULL,
+    [Price]           FLOAT (53)     NULL,
+    [Future Price]    NVARCHAR (255) NULL,
+    [Basis Price]     NVARCHAR (255) NULL,
+    [Fill Price]      FLOAT (53)     NULL,
+    [Offset]          FLOAT (53)     NULL,
+    [Cash Price]      FLOAT (53)     NULL,
+    [BU Customer]     NVARCHAR (255) NULL,
+    [Region]          NVARCHAR (255) NULL,
+    [Delivery Period] NVARCHAR (255) NULL,
+    [Gravitate ID]    NVARCHAR (255) NULL,
+    [Contract Type]   NVARCHAR (255) NULL
+);
+
