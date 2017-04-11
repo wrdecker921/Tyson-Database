@@ -182,12 +182,21 @@ Where	RecordStatus IS NULL
 	-- Calculate the Gateway market basis using the received date
 	-- *** Should we be using the settle or market?
 	----------------------------------------------------------*/
-	Update #Movements 
-	Set		GatewayMarketBasis_ReceivedDate  = BH.Settle
-	From	BasisHistory BH
-	Where	#Movements.Gateway 			= BH.Locale
-	and		#Movements.Product			= BH.Product
-	and		#Movements.UnloadDate      between BH.[From Date] and BH.[To Date]	and		RecordStatus IS NULL
+		Update #Movements 
+	Set		GatewayMarketBasis_ReceivedDate  = BH.Basis
+	From	vwMonthlyBasisHistory BH
+	Where	#Movements.Gateway 				= BH.Gateway
+	and		#Movements.Product				= BH.Product
+	and		MONTH(#Movements.UnloadDate)	= BH.FromMonth
+	and		Year(#Movements.UnloadDate)		= BH.FromYear
+	AND		RecordStatus IS NULL
+	
+	--Update #Movements 
+	--Set		GatewayMarketBasis_ReceivedDate  = BH.Settle
+	--From	BasisHistory BH
+	--Where	#Movements.Gateway 			= BH.Locale
+	--and		#Movements.Product			= BH.Product
+	--and		#Movements.UnloadDate      between BH.[From Date] and BH.[To Date]	and		RecordStatus IS NULL
 
 	/*----------------------------------------------------------- 
 	-- Calculate the Gateway market basis using the trade date
